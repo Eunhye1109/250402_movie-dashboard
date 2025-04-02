@@ -1,6 +1,5 @@
-matplotlib
 streamlit
-pandas
 numpy
-# ✅ 한글 폰트용 추가
+pandas
+matplotlib
 fonts-nanum
