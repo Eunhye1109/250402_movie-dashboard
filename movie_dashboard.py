@@ -24,6 +24,13 @@ except:
     use_korean = False
 
 
+# 적용
+ax2.set_xticklabels(x_labels)
+ax2.set_ylabel(y_label)
+ax2.set_title(title)
+
+
+
 # ✅ 데이터 불러오기
 movie = np.genfromtxt('ratings.dat', delimiter='::', dtype=np.int64)
 df = pd.DataFrame(movie, columns=['user_id', 'movie_id', 'rating', 'timestamp'])
@@ -62,6 +69,15 @@ if len(filtered) > 0:
     ax2.set_xticklabels(x_labels)
     ax2.set_ylabel("평점")
     ax2.set_title("전체 평균 평점 vs 선택한 영화 평균 평점")
+        
+    if use_korean:
+        x_labels = ['전체 평균', '선택한 영화']
+        y_label = '평점'
+        title = '전체 평균 평점 vs 선택한 영화 평균 평점'
+    else:
+        x_labels = ['Global Avg', 'Selected Movie']
+        y_label = 'Rating'
+        title = 'Avg Rating Comparison'
 
     # 값 표시
     for i, val in enumerate(y_vals):
