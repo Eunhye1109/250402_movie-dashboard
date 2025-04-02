@@ -16,7 +16,7 @@ movie = np.genfromtxt('ratings.dat', delimiter='::', dtype=np.int64)
 df = pd.DataFrame(movie, columns=['user_id', 'movie_id', 'rating', 'timestamp'])
 
 # ✅ 제목
-st.title("🎬 MovieLens 영화 평점 대시보드")
+st.title("🎬 영화 평점 대시보드")
 
 # ✅ 영화 ID 선택 드롭다운
 movie_ids = np.unique(df['movie_id'])
