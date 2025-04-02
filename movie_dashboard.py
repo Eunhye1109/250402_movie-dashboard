@@ -5,8 +5,8 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 # ✅ 한글 폰트 설정
-plt.rcParams['font.family'] = 'NanumGothic'
 plt.rcParams['axes.unicode_minus'] = False
+plt.rcParams['font.family'] = 'DejaVu Sans'  # Cloud에서도 잘 나오는 폰트
 
 # ✅ 데이터 불러오기
 movie = np.genfromtxt('ratings.dat', delimiter='::', dtype=np.int64)
