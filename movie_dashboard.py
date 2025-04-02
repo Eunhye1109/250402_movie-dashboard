@@ -4,24 +4,14 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 
-# ✅ 한글 폰트 설정
-import matplotlib.pyplot as plt
-import matplotlib.font_manager as fm
+#  ✅ 한글 폰트 설정
+# import matplotlib.pyplot as plt
+# import matplotlib.font_manager as fm
 
 # 기본 설정
+plt.rcParams['font.family'] = 'sans-serif'
+plt.rcParams['font.sans-serif'] = ['DejaVu Sans', 'Arial', 'sans-serif']
 plt.rcParams['axes.unicode_minus'] = False
-
-try:
-    # 한글 폰트 시도 (로컬용)
-    plt.rcParams['font.family'] = 'Malgun Gothic'
-    plt.plot()  # 폰트 적용 테스트
-    _ = fm.FontProperties(fname='Malgun Gothic')  # 강제 시도
-    use_korean = True
-except:
-    # 안 되면 안전한 영어 웹 폰트로 대체
-    plt.rcParams['font.family'] = 'sans-serif'
-    plt.rcParams['font.sans-serif'] = ['DejaVu Sans', 'Arial', 'sans-serif']
-    use_korean = False
 
 
 # 적용
