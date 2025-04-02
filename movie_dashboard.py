@@ -8,7 +8,7 @@ plt.rcParams['font.family'] = 'Malgun Gothic'
 plt.rcParams['axes.unicode_minus'] = False
 
 # ✅ 데이터 불러오기
-movie = np.genfromtxt('C:/Users/smhrd1/anaconda3/shr_python study/LIB/data/ratings.dat', delimiter='::', dtype=np.int64)
+movie = np.genfromtxt('ratings.dat', delimiter='::', dtype=np.int64)
 df = pd.DataFrame(movie, columns=['user_id', 'movie_id', 'rating', 'timestamp'])
 
 # ✅ 제목
