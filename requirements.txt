@@ -1,4 +1,6 @@
-streamlit
-numpy
-pandas
 matplotlib
+streamlit
+pandas
+numpy
+# ✅ 한글 폰트용 추가
+fonts-nanum
