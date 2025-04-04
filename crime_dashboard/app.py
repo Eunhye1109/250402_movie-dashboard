@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -6,14 +7,16 @@ import seaborn as sns
 # 데이터 로드
 @st.cache_data
 def load_data():
-    df_2015 = pd.read_csv("2015.csv", encoding='cp949')
-    df_2016 = pd.read_csv("2016.csv", encoding='cp949')
-    df_2017 = pd.read_csv("2017.csv", encoding='cp949')
+    # 현재 실행 중인 스크립트 기준으로 경로 설정
+    base_path = os.path.dirname(os.path.abspath(__file__))
+
+    df_2015 = pd.read_csv(os.path.join(base_path, "2015.csv"), encoding='cp949')
+    df_2016 = pd.read_csv(os.path.join(base_path, "2016.csv"), encoding='cp949')
+    df_2017 = pd.read_csv(os.path.join(base_path, "2017.csv"), encoding='cp949')
 
     df_2015['연도'] = 2015
     df_2016['연도'] = 2016
     df_2017['연도'] = 2017
-
     df_all = pd.concat([df_2015, df_2016, df_2017], ignore_index=True)
     df_incident = df_all[df_all['구분'] == '발생건수']
     df_incident['총범죄'] = df_incident[['살인', '강도', '강간·강제추행', '절도', '폭력']].sum(axis=1)
