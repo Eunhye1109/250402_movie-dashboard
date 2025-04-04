@@ -18,7 +18,8 @@ def load_data():
     df_2016['연도'] = 2016
     df_2017['연도'] = 2017
     df_all = pd.concat([df_2015, df_2016, df_2017], ignore_index=True)
-    df_incident = df_all[df_all['구분'] == '발생건수']
+    df_all['구분'] = df_all['구분'].str.strip()  # 공백 제거
+    df_incident = df_all[df_all['구분'].str.contains('발생건수', na=False)]
     df_incident['총범죄'] = df_incident[['살인', '강도', '강간·강제추행', '절도', '폭력']].sum(axis=1)
 
     return df_incident
