@@ -10,9 +10,9 @@ def load_data():
     # 현재 실행 중인 스크립트 기준으로 경로 설정
     base_path = os.path.dirname(os.path.abspath(__file__))
 
-    df_2015 = pd.read_csv(os.path.join(base_path, "2015.csv"), encoding='cp949')
-    df_2016 = pd.read_csv(os.path.join(base_path, "2016.csv"), encoding='cp949')
-    df_2017 = pd.read_csv(os.path.join(base_path, "2017.csv"), encoding='cp949')
+    df_2015 = pd.read_csv(os.path.join(base_path, "2015.csv"), encoding='utf-8')
+    df_2016 = pd.read_csv(os.path.join(base_path, "2016.csv"), encoding='utf-8')
+    df_2017 = pd.read_csv(os.path.join(base_path, "2017.csv"), encoding='utf-8')
 
     df_2015['연도'] = 2015
     df_2016['연도'] = 2016
