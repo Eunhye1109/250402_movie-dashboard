@@ -7,7 +7,6 @@ import seaborn as sns
 # 데이터 로드
 @st.cache_data
 def load_data():
-    # 현재 실행 중인 스크립트 기준으로 경로 설정
     base_path = os.path.dirname(os.path.abspath(__file__))
 
     df_2015 = pd.read_csv(os.path.join(base_path, "2015.csv"), encoding='utf-8-sig')
@@ -20,14 +19,13 @@ def load_data():
 
     df_all = pd.concat([df_2015, df_2016, df_2017], ignore_index=True)
 
-    # 디버깅용 출력
+    # 진단용 출력
     st.write("📌 df_all 컬럼:", df_all.columns.tolist())
-    st.write("📌 '구분' 컬럼 고유값:", df_all['구분'].unique())
-    st.write("📌 df_all 샘플:", df_all.head())
+    st.write("📌 '구분' 고유값:", df_all['구분'].unique())
+    st.write("📌 샘플:", df_all.head())
 
     df_all['구분'] = df_all['구분'].astype(str).str.strip()
     df_incident = df_all[df_all['구분'].str.contains('발생건수', na=False)]
-
     df_incident['총범죄'] = df_incident[['살인', '강도', '강간·강제추행', '절도', '폭력']].sum(axis=1)
 
     return df_incident
