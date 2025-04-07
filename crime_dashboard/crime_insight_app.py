@@ -3,7 +3,6 @@ import os
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 # 데이터 로드
 @st.cache_data
