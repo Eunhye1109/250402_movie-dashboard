@@ -7,9 +7,9 @@ import matplotlib.pyplot as plt
 # 데이터 로드
 @st.cache_data
 def load_data():
-    df_2015 = pd.read_csv("crime_dashboard/2015.csv", encoding='utf-8-sig')
-    df_2016 = pd.read_csv("crime_dashboard/2016.csv", encoding='utf-8-sig')
-    df_2017 = pd.read_csv("crime_dashboard/2017.csv", encoding='utf-8-sig')
+    df_2015 = pd.read_csv("2015.csv", encoding='euc-kr')
+    df_2016 = pd.read_csv("2016.csv", encoding='euc-kr')
+    df_2017 = pd.read_csv("2017.csv", encoding='euc-kr')
 
     df_2015['연도'] = 2015
     df_2016['연도'] = 2016
@@ -17,10 +17,6 @@ def load_data():
 
     df_all = pd.concat([df_2015, df_2016, df_2017], ignore_index=True)
 
-    # 진단용 출력
-    st.write("📌 df_all 컬럼:", df_all.columns.tolist())
-    st.write("📌 '구분' 고유값:", df_all['구분'].unique())
-    st.write("📌 샘플:", df_all.head())
 
     df_all['구분'] = df_all['구분'].astype(str).str.strip()
     df_incident = df_all[df_all['구분'].str.contains('발생건수', na=False)]
