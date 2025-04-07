@@ -7,11 +7,9 @@ import matplotlib.pyplot as plt
 # 데이터 로드
 @st.cache_data
 def load_data():
-    base_path = os.path.dirname(os.path.abspath(__file__))
-
-    df_2015 = pd.read_csv(os.path.join(base_path, "2015.csv"), encoding='utf-8-sig')
-    df_2016 = pd.read_csv(os.path.join(base_path, "2016.csv"), encoding='utf-8-sig')
-    df_2017 = pd.read_csv(os.path.join(base_path, "2017.csv"), encoding='utf-8-sig')
+    df_2015 = pd.read_csv("crime_dashboard/2015.csv", encoding='utf-8-sig')
+    df_2016 = pd.read_csv("crime_dashboard/2016.csv", encoding='utf-8-sig')
+    df_2017 = pd.read_csv("crime_dashboard/2017.csv", encoding='utf-8-sig')
 
     df_2015['연도'] = 2015
     df_2016['연도'] = 2016
